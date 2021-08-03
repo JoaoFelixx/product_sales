@@ -8,6 +8,13 @@ class Sales {
       (err) => { if (err) throw new Error('Refused connection') })
   }
   
+  async get(sale_date: string) {
+    return await connection.promise().query(
+      'SELECT * FROM `sales` WHERE `product_sale_date` = ?',
+      [sale_date]
+    )
+  }
+
   async add(sale: SalesInterface, product_sale_date) {
     try {
       const { 
