@@ -8,14 +8,21 @@ class Sales {
       (err) => { if (err) throw new Error('Refused connection') })
   }
   
-  async get(sale_date: string) {
+  async get(product_sale_date: string) {
     return await connection.promise().query(
       'SELECT * FROM `sales` WHERE `product_sale_date` = ?',
-      [sale_date]
+      [product_sale_date]
     )
   }
 
-  async add(sale: SalesInterface, product_sale_date) {
+  async getMoney(product_sale_date: string) {
+    return await connection.promise().query(
+      'SELECT SUM(product_value) FROM `sales` WHERE `product_sale_date` = ?',
+      [product_sale_date]
+    )
+  }
+
+  async add(sale: SalesInterface, product_sale_date: string) {
     try {
       const { 
         product_name, 
@@ -31,7 +38,13 @@ class Sales {
     } catch (error) {
       throw new Error(error)
     }
-    
+  }
+  
+  async remove(_id: string) {
+    return connection.execute(
+      'DELETE FROM `sales` WHERE product_id = ?',
+      [_id]
+    )
   }
 }
 
