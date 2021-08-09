@@ -1,5 +1,7 @@
-import express from 'express';
-import { router } from './router/router'
+import express         from 'express';
+import { router }      from './router/router';
+// import middlewares_cors from './middlewares/middleware-cors';
+import cors            from 'cors'
 
 class Application {
   
@@ -18,6 +20,7 @@ class Application {
 
   middlewares(): void {
     this.express.use(express.json());
+    this.express.use(cors());
   }
 }
 
