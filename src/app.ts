@@ -1,7 +1,6 @@
-import express         from 'express';
-import { router }      from './router/router';
-// import middlewares_cors from './middlewares/middleware-cors';
-import cors            from 'cors'
+import express    from 'express';
+import { router } from './router/router';
+import cors       from 'cors'
 
 class Application {
   

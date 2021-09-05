@@ -2,11 +2,19 @@ import { Request, Response } from 'express';
 import { createSale } from './createSale'
 
 export async function createSaleController(request:Request, response: Response) {
-  if (!request.body) return response.sendStatus(404);
-  const { product_name, product_value, product_amount, product_form_of_payment  } = request.body;
+  console.log(request.body)
 
-  const sale = { product_name, product_value, product_amount, product_form_of_payment}
-  return await createSale(sale)
-    .then(() => response.sendStatus(201))
-    .catch((err) => response.sendStatus(400))
+  try {
+    if (!request.body) return response.sendStatus(404);
+
+    console.log(request.body)
+
+    await createSale(request.body)
+    return response.sendStatus(201)
+
+  } catch (error) {
+    console.log(error)
+
+    response.sendStatus(400)
+  }
 } 
