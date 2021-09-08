@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import getSales from "./GetSales";
+import { get, getSumToday } from "./GetSales";
 
 class GetSalesController {
 
@@ -7,7 +7,7 @@ class GetSalesController {
 
     if (!request.params.date) return response.sendStatus(400);
 
-    return await getSales.today(request.params.date)
+    return await get(request.params.date)
       .then(([rows]) => response.status(200).json(rows))
       .catch((err) => { console.log(err)
         response.sendStatus(400)});
@@ -16,7 +16,7 @@ class GetSalesController {
   async getMoneyController(request: Request, response: Response) {
     if (!request.params.date) return response.sendStatus(400);
 
-    return await getSales.sumToday(request.params.date)
+    return await getSumToday(request.params.date)
       .then(
         ([rows]) => response.status(200).json(rows))
       .catch(
@@ -24,4 +24,9 @@ class GetSalesController {
   }
 }
 
-export default new GetSalesController();
+const { getController, getMoneyController } = new GetSalesController();
+
+export {
+  getController,
+  getMoneyController
+}

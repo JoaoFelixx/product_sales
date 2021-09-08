@@ -1,6 +1,7 @@
-import express    from 'express';
-import { router } from './router/router';
-import cors       from 'cors'
+import cors from 'cors';
+import express from 'express';
+import salesRouter from './router/salesRouter';
+import dividendsRouter from './router/dividendsRouter';
 
 class Application {
   
@@ -8,13 +9,13 @@ class Application {
 
   constructor() {
     this.express = express();
-    
     this.middlewares();
     this.routes();
   }
 
   routes(): void {
-    this.express.use(router);
+    this.express.use('/api/v1/sales',salesRouter);
+    this.express.use('/api/v1/dividends', dividendsRouter);
   }
 
   middlewares(): void {

@@ -1,5 +1,7 @@
-import connection from '../connection/mysqlConnection';
-import { SalesInterface } from '../entities/SalesInterface';
+import connections  from '../connections';
+import SalesInterface from '../entities';
+
+const { mysqlConnection: connection } = connections 
 
 class Sales {
 
@@ -9,17 +11,19 @@ class Sales {
   }
   
   async get(product_sale_date: string) {
-    return await connection.promise().query(
-      'SELECT * FROM `sales` WHERE `product_sale_date` = ?',
-      [product_sale_date]
-    )
+    return await connection.promise()
+      .query(
+        'SELECT * FROM `sales` WHERE `product_sale_date` = ?',
+        [product_sale_date]
+      )
   }
 
   async getMoney(product_sale_date: string) {
-    return await connection.promise().query(
-      'SELECT SUM(product_value) FROM `sales` WHERE `product_sale_date` = ?',
-      [product_sale_date]
-    )
+    return await connection.promise()
+      .query(
+        'SELECT SUM(product_value) FROM `sales` WHERE `product_sale_date` = ?',
+        [product_sale_date]
+      )
   }
 
   async add(sale: SalesInterface, product_sale_date: string) {
@@ -48,4 +52,4 @@ class Sales {
   }
 }
 
-export default new Sales()
+export default Sales

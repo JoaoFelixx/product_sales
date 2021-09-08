@@ -1,8 +1,10 @@
-import Sales from "../../repository/Sales";
+import repository from '../../repository'
+
+const { sales: Sales } = repository
 
 class GetSale {
 
-  async today(sale_date: string) {
+  async get(sale_date: string) {
     try {
   
       return await Sales.get(sale_date)
@@ -12,7 +14,7 @@ class GetSale {
     }
   }
 
-  async sumToday(sale_date: string) {
+  async getSumToday(sale_date: string) {
     try {
       
       return await Sales.getMoney(sale_date)
@@ -25,4 +27,9 @@ class GetSale {
   
 }
 
-export default new GetSale()
+const { get, getSumToday } = new GetSale()
+
+export {
+  get, 
+  getSumToday
+}

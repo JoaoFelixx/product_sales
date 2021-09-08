@@ -1,6 +1,6 @@
 import mysql from "mysql2";
 
-const connection = mysql.createConnection({
+const mysqlConnection = mysql.createConnection({
   port: 3306,
   host: "localhost",
   user: "admin",
@@ -8,4 +8,4 @@ const connection = mysql.createConnection({
   database: "nove_graus",
 });
 
-export default connection;
+export default mysqlConnection;

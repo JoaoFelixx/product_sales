@@ -1,11 +1,13 @@
-import { SalesInterface } from '../../entities/SalesInterface';
-import Sale from '../../repository/Sales'
+import SalesInterface from '../../entities';
+import repository  from '../../repository'
 
-export async function createSale(sale: SalesInterface) {
+const { sales: Sales } = repository;
+
+export const createSale = async (sale: SalesInterface) => {
   try {
-    const date = new Date().toString().substr(4, 11);
+    const date = new Date().toString().substring(4, 16);
 
-    return await Sale.add(sale, date)
+    return await Sales.add(sale, date)
   
   } catch (error) {
     throw new Error(error);

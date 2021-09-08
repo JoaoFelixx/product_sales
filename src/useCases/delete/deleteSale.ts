@@ -1,6 +1,8 @@
-import Sales from "../../repository/Sales";
+import repository from "../../repository";
 
-export async function deleteSales(_id) {
+const { sales: Sales } = repository
+
+export const deleteSale = async (_id) =>  {
   try {
 
     return await Sales.remove(_id)
