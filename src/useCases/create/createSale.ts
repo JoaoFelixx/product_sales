@@ -5,7 +5,7 @@ const { sales: Sales } = repository;
 
 export const createSale = async (sale: SalesInterface) => {
   try {
-    const date = new Date().toString().substring(4, 16);
+    const date = new Date().toString().substring(4, 15);
 
     return await Sales.add(sale, date)
   

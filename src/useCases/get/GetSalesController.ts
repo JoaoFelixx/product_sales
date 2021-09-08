@@ -8,9 +8,10 @@ class GetSalesController {
     if (!request.params.date) return response.sendStatus(400);
 
     return await get(request.params.date)
-      .then(([rows]) => response.status(200).json(rows))
-      .catch((err) => { console.log(err)
-        response.sendStatus(400)});
+      .then(
+        ([data]) => response.status(200).json({result: [data]}))
+      .catch(
+        (err) => response.sendStatus(400));
   }
 
   async getMoneyController(request: Request, response: Response) {
@@ -18,7 +19,7 @@ class GetSalesController {
 
     return await getSumToday(request.params.date)
       .then(
-        ([rows]) => response.status(200).json(rows))
+        ([data]) => response.status(200).json({result: [data]}))
       .catch(
         (err) => response.sendStatus(400));
   }
