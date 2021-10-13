@@ -1,10 +1,10 @@
-import { createSaleController } from "./create/createSaleController";
-import { deleteSalesController } from "./delete/deleteSalesController";
-import { getController, getMoneyController } from "./get/GetSalesController";
+import { createSaleController } from './create';
+import { deleteSalesController } from './delete';
+import { getSalesController, getSalesMoneyController } from './get';
 
 export {
-  getController,
-  getMoneyController,
+  getSalesController,
   createSaleController,
   deleteSalesController,
+  getSalesMoneyController,
 }

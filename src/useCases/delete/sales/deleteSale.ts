@@ -1,10 +1,9 @@
-import repository from "../../repository";
+import repository from "../../../repository";
 
 const { sales: Sales } = repository
 
-export const deleteSale = async (_id) =>  {
+export const deleteSale = async (_id: string) =>  {
   try {
-
     return await Sales.remove(_id)
 
   } catch(error) {

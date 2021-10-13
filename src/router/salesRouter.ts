@@ -1,17 +1,16 @@
 import { Router } from 'express';
 import { 
-  getController,
-  getMoneyController,
   createSaleController,
   deleteSalesController,
-
+  getSalesController,
+  getSalesMoneyController,
 } from '../useCases';
 
 const router = Router();
 
-router.get('/:date', getController);
+router.get('/:date', getSalesController);
 
-router.get('/sum/:date', getMoneyController)
+router.get('/sum/:date', getSalesMoneyController)
 
 router.post('/', createSaleController);
 

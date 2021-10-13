@@ -1,5 +1,5 @@
-import SalesInterface from '../../entities';
-import repository  from '../../repository'
+import SalesInterface from '../../../entities';
+import repository  from '../../../repository'
 
 const { sales: Sales } = repository;
 

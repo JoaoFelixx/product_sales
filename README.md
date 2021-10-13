@@ -1,0 +1,1 @@
+# Gestão de vendas e de dividendos (pessoas que pegam fiado) 
