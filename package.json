@@ -1,10 +1,9 @@
 {
-  "name": "noveGraus",
+  "name": "sales-project",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev": "npx nodemon --exec ts-node --transpile-only src/server.ts",
-    "test": "npx nodemon --exec ts-node --transpile-only src/repository/Sales.ts"
+    "dev": "npx nodemon --exec ts-node --transpile-only ./src/app.ts"
   },
   "author": {
     "name": "João Carlos Félix"
@@ -13,6 +12,7 @@
   "dependencies": {
     "@types/jsonwebtoken": "^8.5.5",
     "cors": "^2.8.5",
+    "date-fns": "^2.25.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.2.5"

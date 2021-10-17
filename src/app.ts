@@ -1,27 +1,17 @@
-import cors from 'cors';
 import express from 'express';
-import salesRouter from './router/salesRouter';
-import dividendsRouter from './router/dividendsRouter';
+import cors from 'cors';
+import routes from './routes';
 
-class Application {
-  
-  public express: express.Application;
+const app = express();
 
-  constructor() {
-    this.express = express();
-    this.middlewares();
-    this.routes();
-  }
+app.use(cors());
 
-  routes(): void {
-    this.express.use('/api/v1/sales',salesRouter);
-    this.express.use('/api/v1/dividends', dividendsRouter);
-  }
+app.use(express.json());
 
-  middlewares(): void {
-    this.express.use(express.json());
-    this.express.use(cors());
-  }
-}
+app.set('json spaces', 2);
 
-export default new Application().express;
+app.use('/api/v1/sales',routes);
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));

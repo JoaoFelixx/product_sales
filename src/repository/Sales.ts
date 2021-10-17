@@ -3,7 +3,7 @@ import SalesInterface from '../entities';
 
 const { mysqlConnection: connection } = connections 
 
-class Sales {
+export default class Sales {
 
   constructor() {
     connection.connect(
@@ -51,5 +51,3 @@ class Sales {
     )
   }
 }
-
-export default Sales

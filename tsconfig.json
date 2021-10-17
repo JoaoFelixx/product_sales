@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es2017",                          
+    "target": "es2020",                          
     "module": "commonjs", 
     "allowJs": true,                                            
     "esModuleInterop": true,                  
     "skipLibCheck": true,
-    "outDir": "./dist",                     
+    "outDir": "./build",                     
     "forceConsistentCasingInFileNames": true  
   },
   "include": [

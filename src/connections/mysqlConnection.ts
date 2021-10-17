@@ -1,11 +1,11 @@
 import mysql from "mysql2";
 
 const mysqlConnection = mysql.createConnection({
-  port: 3306,
+  port: 8080,
   host: "localhost",
-  user: "admin",
+  user: "root",
   password: "root",
-  database: "nove_graus",
+  database: "product_sales",
 });
 
 export default mysqlConnection;

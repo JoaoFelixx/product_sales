@@ -1,6 +1,6 @@
-CREATE DATABASE nove_graus;
+CREATE DATABASE product_sales;
 
-USE nove_graus;
+USE product_sales;
 
 CREATE TABLE sales(
   product_id INT AUTO_INCREMENT,
@@ -12,10 +12,3 @@ CREATE TABLE sales(
 
   PRIMARY KEY (product_id)
 );
-
-CREATE TABLE dividends(
-  dividend_name VARCHAR(20) NOT NULL,
-  dividend_value VARCHAR(7) ,
-  dividend_amount VARCHAR(4) ,
-  dividend_form_of_payment ENUM('pix','cartão','dinheiro')
-)
