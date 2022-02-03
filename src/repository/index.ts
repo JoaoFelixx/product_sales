@@ -1,7 +1,5 @@
-import Sales from "./Sales";
+import SalesRepository from "./SalesRepository";
 
-const sales = new Sales();
-
-export default{
-  sales,
+export {
+  SalesRepository,
 }

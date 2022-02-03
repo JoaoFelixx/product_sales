@@ -1,3 +1,5 @@
-import { SalesInterface } from "./SalesInterface";
+import SalesInterface from "./SalesInterface";
 
-export default SalesInterface
+export {
+  SalesInterface,
+}

@@ -1,5 +1,5 @@
 import connections  from '../connections';
-import SalesInterface from '../entities';
+import { SalesInterface } from '../entities';
 
 const { mysqlConnection: connection } = connections 
 
