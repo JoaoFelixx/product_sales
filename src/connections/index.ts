@@ -1,7 +1,7 @@
-import mysqlConnection from "./mysqlConnection";
-import postgres from './postgres'
+import mysql from "./mysql";
+import postgres from './postgres';
 
-export default {
+export {
+  mysql,
   postgres,
-  mysqlConnection,
 }

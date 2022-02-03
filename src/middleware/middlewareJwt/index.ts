@@ -1,7 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-// import { SECRET_KEY_JWT } = require('../../../secret');
-const SECRET_KEY_JWT = '12345';
+import { Request, Response, NextFunction } from 'express';
+import { SECRET_KEY_JWT } from '../../secret';
 
 function middlewareJwt(request: Request, response: Response, next: NextFunction) {
   try {

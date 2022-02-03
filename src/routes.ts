@@ -9,7 +9,7 @@ import { middlewareJwt } from './middleware';
 
 const router = Router();
 
-// cria um sistema de autenticaçao  router.use(middlewareJwt)
+// cria um sistema de autenticaç~ao router.use(middlewareJwt)
 
 router.get('/:date', getSalesController);
 
