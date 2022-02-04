@@ -1,9 +1,9 @@
-import { getSales, getSalesSumToday } from "./sales/GetSales";
-import { getSalesController, getSalesMoneyController } from "./sales/GetSalesController";
+import { 
+  getSalesController, 
+  getSalesMoneyController,
+} from "./GetSalesController";
 
 export {
- getSales,
- getSalesSumToday,
  getSalesController,
  getSalesMoneyController,
 }

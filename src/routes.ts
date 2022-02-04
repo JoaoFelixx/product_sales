@@ -9,11 +9,11 @@ import { middlewareJwt } from './middleware';
 
 const router = Router();
 
-// cria um sistema de autenticaç~ao router.use(middlewareJwt)
+// cria um sistema de autenticação router.use(middlewareJwt)
 
-router.get('/:date', getSalesController);
+router.get('/', getSalesController);
 
-router.get('/sum/:date', getSalesMoneyController);
+router.get('/sum', getSalesMoneyController);
 
 router.post('/', createSaleController);
 

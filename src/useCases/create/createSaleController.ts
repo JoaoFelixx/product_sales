@@ -1,9 +1,12 @@
 import { Request, Response } from 'express';
-import { createSale } from './createSale'
+import { format } from 'date-fns';
+import createSale from './createSale';
 
-export const createSaleController = async (request:Request, response: Response) => {
+async function createSaleController(request: Request, response: Response) {
   try {
     const hasError = [];
+    const date = format(new Date(), 'MM/dd/yyyy')
+
     const {
       product_name,
       product_value,
@@ -21,19 +24,21 @@ export const createSaleController = async (request:Request, response: Response) 
     Object.entries(fieldsToValidate)
       .reduce((acc, [key, value]) => {
 
-        if (typeof value != "string" || value.length === 0) 
-          return hasError.push(`${key} is invalid ` ) 
+        if (typeof value != "string" || value.length === 0)
+          return hasError.push(`${key} is invalid `)
 
         return { ...acc, [key]: value }
-      },{})
+      }, {})
 
     if (hasError.length > 0) return response.status(400).json({ error: [hasError] });
 
     await createSale(request.body)
-    
+
     return response.sendStatus(201)
 
   } catch (error) {
     response.sendStatus(400)
   }
-} 
+}
+
+export default createSaleController

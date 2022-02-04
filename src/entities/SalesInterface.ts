@@ -1,8 +1,9 @@
 interface SalesInterface {
-  product_name: string;
-  product_value: string;
-  product_amount: string;
-  product_form_of_payment: string;
+  name: string;
+  value: string;
+  amount: string;
+  form_of_payment: string;
+  sale_date: Date;
 }
 
 export default SalesInterface;

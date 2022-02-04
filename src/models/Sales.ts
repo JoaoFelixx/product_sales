@@ -1,13 +1,14 @@
-const Sequelize = require('sequelize');
-const { postgres } = require('../connections');
+import Employees from "./Employees";
+import Sequelize from 'sequelize';
+import { postgres } from '../connections';
 
-const Sales = postgres.define('Users', {
+const Sales = postgres.define('Sales', {
   _id: {
     type: Sequelize.UUID,
     allowNull: false,
     primaryKey: true,
   },
- 
+
   name: {
     type: Sequelize.STRING(15),
     allowNull: false,
@@ -19,19 +20,23 @@ const Sales = postgres.define('Users', {
   },
 
   amount: {
-    type: Sequelize.STRING(4),
-    allowNull: false,
-  },
-
-  sale_date: {
-    type: Sequelize.DATE,
+    type: Sequelize.FLOAT,
     allowNull: false,
   },
 
   form_of_payment: {
-    type: Sequelize.ENUM('pix','cartao','dinheiro'),
+    type: Sequelize.ENUM('pix', 'cartao', 'dinheiro'),
     allowNull: false,
   },
+
+  seller_id: {
+    type: Sequelize.UUID,
+    allowNull: false,
+    references: {
+      key: '_id',
+      model: Employees,
+    }
+  }
 });
 
 export default Sales;

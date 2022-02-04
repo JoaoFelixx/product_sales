@@ -1,4 +1,4 @@
-import { SalesRepository } from "../repository";
+import { SalesRepository } from "../repositories";
 import { SalesInterface } from "../entities";
 
 const sales = new SalesRepository();
@@ -12,8 +12,8 @@ class SalesService {
     return await sales.getMoney(productSalesDate)
   }
 
-  static async add(sale: SalesInterface, productSalesDate: string) {
-    return await sales.add(sale, productSalesDate)
+  static async add(sale: SalesInterface) {
+    return await sales.add(sale)
   }
 
   static async remove(_id: string) {

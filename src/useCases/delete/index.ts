@@ -1,7 +1,5 @@
-import { deleteSale } from "./sales/deleteSale";
-import { deleteSalesController } from "./sales/deleteSalesController";
+import deleteSalesController from "./deleteSalesController";
 
 export {
-  deleteSale,
   deleteSalesController,
 }

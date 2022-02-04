@@ -1,7 +1,5 @@
-import { createSale } from "./sales/createSale";
-import { createSaleController } from "./sales/createSaleController";
+import createSaleController from "./createSaleController";
 
 export {
-  createSale,
   createSaleController,
 }
